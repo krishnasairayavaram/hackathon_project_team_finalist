@@ -19,7 +19,7 @@ export default function CartPage() {
     }
   }, [router]);
 
-  const total = cart.reduce((sum, item) => sum + item.price, 0).toFixed(2);
+  const total = cart.reduce((sum, item) => sum + (item.price || item.cost || 0), 0).toFixed(2);
 
   const handleCheckout = () => {
 
@@ -133,7 +133,7 @@ export default function CartPage() {
                     </p>
 
                     <p className="font-bold text-orange-600 mt-1">
-                      ${item.price.toFixed(2)}
+                      ${(item.price || item.cost || 0).toFixed(2)}
                     </p>
                   </div>
 
